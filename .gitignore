@@ -46,8 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-/firstSegmentation/
-/imagesToTrain&Instructions/
-/rawGreen40X/
-/rawImages/
+/processed images/
+/photos/
 /*.xls
