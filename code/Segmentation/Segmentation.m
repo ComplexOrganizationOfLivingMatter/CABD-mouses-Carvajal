@@ -16,11 +16,8 @@ function Segmentation(photoPath)
     %%Load images
 
     Img_g=imread(photoPath);
-    [H,W,c]=size(Img_g);
 
-
-
-    % We modify G regarding intensity property. Get a treshold overlapping 3 diferent layers to obtein the most representative data. 
+    % We modify G regarding intensity property. Get a threshold overlapping 3 diferent layers to obtein the most representative data. 
     G=rgb2gray(Img_g);
     J=adapthisteq(G);
     meanJ=mean(mean(J));
@@ -38,8 +35,6 @@ function Segmentation(photoPath)
     % Noise 
     BWmin= bwareaopen(BWmin,Noise_background);
     BWmin= bwareaopen(1-BWmin,Noise_background);
-
-
 
     %% MORPHOLOGY. 
 
@@ -62,9 +57,6 @@ function Segmentation(photoPath)
 
     BW = 1-bwareaopen(1-BW,Delete_artifacts);
 
-    
-    
-    
     %% SAVING
     splittedPhotoPath=strsplit(photoPath,'\');
     segmententionFolderPath=strsplit(photoPath,'rawImages');
@@ -75,9 +67,6 @@ function Segmentation(photoPath)
        mkdir([segmententionFolderPath{1} 'firstSegmentation\' splittedPhotoPath{end-1}]); 
     end
        
-    
-    imwrite(BW,[segmententionFolderPath{1} 'firstSegmentation\' splittedPhotoPath{end-1} '\' photoName '.jpg'])
-
-
+    imwrite(BW,[segmententionFolderPath{1} 'firstSegmentation\' splittedPhotoPath{end-1} '\' photoName])
 
 end
