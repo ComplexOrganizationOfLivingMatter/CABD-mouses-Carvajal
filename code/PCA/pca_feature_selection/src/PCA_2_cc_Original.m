@@ -125,30 +125,30 @@ function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
     Proy = Proy{numRow};
 
 
-    save( ['D:\Pedro\Mouse muscle SOD1\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '_selection_cc_' num2str(n_totalCcs)], 'BettersPCAEachStep', 'Proy', 'bestPCA','indexesCcsSelected', 'eigenvectors')
+    save( ['D:\Pedro\CABD-mouses-Carvajal\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '_selection_cc_' num2str(n_totalCcs)], 'BettersPCAEachStep', 'Proy', 'bestPCA','indexesCcsSelected', 'eigenvectors')
 
     
-    switch lower(n_t1(1:2))
+    switch lower(n_t1(end-1:end))
         
         case 'wt'
             color1=[0,1,0];
-        case 'co'
+        case 'l1'
             color1=[0,0,1];
-        case 'g9'
+        case 'l2'
             color1=[1,0,0];
     end
     
-    switch lower(n_t2(1:2))
+    switch lower(n_t2(end-1:end))
         
         case 'wt'
             color2=[0,1,0];
-        case 'co'
+        case 'l1'
             color2=[0,0,1];
-        case 'g9'
+        case 'l2'
             color2=[1,0,0];
     end
     
-    if strcmp(n_t1(1:2),n_t2(1:2))==1
+    if strcmp(n_t1(end-1:end),n_t2(end-1:end))==1
         color2=color1/2;
     end
     
@@ -161,7 +161,7 @@ function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
     stringres=strcat('PCA analysis selected features:',num2str(indexesCcsSelected),' Descriptor: ',num2str(bestPCA));
     title(stringres)
     legend(n_t1,n_t2, 'Location', 'bestoutside')
-    saveas(h,['D:\Pedro\Mouse muscle SOD1\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '.jpg'])
+    saveas(h,['D:\Pedro\CABD-mouses-Carvajal\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '.jpg'])
 
     close all
 end
