@@ -1,5 +1,5 @@
 %%PCA_2_cc
-function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
+function PCA_2_cc_geometric(m_t1,m_t2,n_t1,n_t2)
 
     %Summary of process:
     % 1-Calculate 10 betters trios
@@ -8,6 +8,8 @@ function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
     % Finally, adding a 'cc' until 7 ccs or until get lower descriptor of PCA
     % than step before.
 
+    indexes=[1,2,7,8,9,10,11,12,13,14];
+%     indexes=[1:14,69];
 
     
     %Define expansion in process
@@ -16,8 +18,7 @@ function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
 
     %% Parameters Initialization
     %Selection of specified ccs
-    %indexes=[1,2,7,8,9,10,11,12,13,14,15,16,23,24,25,26,27,28,29,30,31,32,33,34,35,36,41,42,47,48,53,54,59,60,70,71,72,73,74,75,76,77,78,79,80,81];
-    indexes=1:size(m_t1,1);
+    totalCharactsIndexes=1:size(m_t1(:,indexes), 2); %num of columns
 
     %Asignation to groups by matrixes
     % Group 1
@@ -33,7 +34,7 @@ function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
 
     %Number of images and ccs
     n_images=nImgType1+nImgType2;
-    n_totalCcs=length(indexes);
+    n_totalCcs=length(totalCharactsIndexes);
 
 
     %Unitary matrix by type. A column by class
@@ -128,7 +129,7 @@ function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
     Proy = Proy{numRow};
 
 
-    save( ['D:\Pedro\CABD-mouses-Carvajal\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '_selection_cc_' num2str(n_totalCcs)], 'BettersPCAEachStep', 'Proy', 'bestPCA','indexesCcsSelected', 'eigenvectors')
+    save( ['D:\Pedro\CABD-mouses-Carvajal\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '_selection_cc_' num2str(n_totalCcs) '_geometric'], 'BettersPCAEachStep', 'Proy', 'bestPCA','indexesCcsSelected', 'eigenvectors')
 
     
     switch lower(n_t1(end-1:end))
@@ -164,7 +165,7 @@ function PCA_2_cc_Original(m_t1,m_t2,n_t1,n_t2)
     stringres=strcat('PCA analysis selected features:',num2str(indexes(indexesCcsSelected)),' Descriptor: ',num2str(bestPCA));
     title(stringres)
     legend(n_t1,n_t2, 'Location', 'bestoutside')
-    saveas(h,['D:\Pedro\CABD-mouses-Carvajal\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '.jpg'])
+    saveas(h,['D:\Pedro\CABD-mouses-Carvajal\PCA_data\PCA_data_by_groups\PCA_' n_t1 '_' n_t2 '_geometric.jpg'])
 
     close all
 end

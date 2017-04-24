@@ -1,4 +1,4 @@
-function Main_correction(folder)
+function Main_correction(folder,name)
 %This function is necessary in cases where velocity property is bad
 %labelled in network cell. This process has in account that segmentation
 %process is checked
