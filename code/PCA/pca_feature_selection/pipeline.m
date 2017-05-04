@@ -30,5 +30,5 @@ indSolGeo=[1:14,69];
 
 PCA_2_selectedFeatures(solWT_81, solL1_81, 'Sol WT', 'Sol L1',[3,5,8,14],indSolGeo);
 PCA_2_selectedFeatures(solWT_81, solL2_81, 'Sol WT', 'Sol L2',[3,5,8],indSolGeo);
-PCA_2_selectedFeatures(taWT_46, taL1_46, 'Ta WT', 'Ta L1',[find(indTaGeo==1),find(indTaGeo==2),find(indTaGeo==7),find(indTaGeo==13)],indTaGeo);
-PCA_2_selectedFeatures(taWT_46, taL2_46, 'Ta WT', 'Ta L2',[find(indTaGeo==1),find(indTaGeo==2),find(indTaGeo==7),find(indTaGeo==9),find(indTaGeo==12),find(indTaGeo==10)],indTaGeo);
+PCA_2_selectedFeatures(taWT_46, taL1_46, 'Ta WT', 'Ta L1',[find(indTa==1),find(indTa==2),find(indTa==7),find(indTa==13)],indTaGeo);
+PCA_2_selectedFeatures(taWT_46, taL2_46, 'Ta WT', 'Ta L2',[find(indTa==1),find(indTa==2),find(indTa==7),find(indTa==9),find(indTa==12),find(indTa==10)],indTaGeo);
