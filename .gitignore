@@ -49,5 +49,7 @@ Temporary Items
 /processedImages/
 /photos/
 /PCA_data/
+/docs/
 /*.xls
 /*.xlsx
+/*.docx
